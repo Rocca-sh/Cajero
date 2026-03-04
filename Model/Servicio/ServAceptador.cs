@@ -1,0 +1,3 @@
+publc interface ServAceptador{
+    
+}
