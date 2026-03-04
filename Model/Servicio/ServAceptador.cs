@@ -1,3 +1,6 @@
-publc interface ServAceptador{
-    
+namespace CajerosCfe.Model.Servicio.Aceptador
+{
+    public interface ServAceptador{
+        
+    }
 }
