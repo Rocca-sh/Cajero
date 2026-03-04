@@ -1,17 +1,16 @@
 namespace CajerosCfe.Model.Dominio
 {
-    public class Fujitsu
+    public class LectorBarra
     {
         public string Puerto { get; set; }
         public int Velocidad { get; set; }
         public string Estado { get; set; }
         public bool Conectado { get; set; }
-        public int CantidadGaveta1 { get; set; }
-        public int CantidadGaveta2 { get; set; }
+        public string UltimoCodigoEscaneado { get; set; }
 
-        public Fujitsu()
+        public LectorBarra()
         {
-            Puerto = "COM2";
+            Puerto = "COM6";
             Velocidad = 9600;
             Estado = "Desconocido";
         }
