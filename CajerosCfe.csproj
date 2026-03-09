@@ -9,19 +9,73 @@
 
   <ItemGroup>
     <Reference Include="MPOST">
-      <HintPath>Librerias\Aceptador\MPOST.dll</HintPath>
+      <HintPath>Librerias/Aceptador/MPOST.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Reference>
-  </ItemGroup>
-
-
-  <ItemGroup>
     <Reference Include="Custom_VKP_XFS">
-      <HintPath>Librerias\Aceptador\Custom_VKP_XFS.dll</HintPath>
+      <HintPath>Librerias/Impresora/Custom_VKP_XFS.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="CuCustomWndAPI">
+      <HintPath>Librerias/Impresora/CuCustomWndAPI.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="CuCustomWndAPIWrp">
+      <HintPath>Librerias/Impresora/CuCustomWndAPIWrp.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="TonelerosLib">
+      <HintPath>Librerias/Tonelero/TonelerosLib.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="fkbduldv">
+      <HintPath>Librerias/fujitsulib1/fkbduldv.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="FTECusbbdu">
+      <HintPath>Librerias/fujitsulib1/FTECusbbdu.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="atmusblib">
+      <HintPath>Librerias/fujitsulib1/atmusblib.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="USBLIB">
+      <HintPath>Librerias/fujitsulib1/USBLIB.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="CPI.EBDS">
+      <HintPath>Librerias/generales/CPI.EBDS.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="CPI.Integration.Toolkit">
+      <HintPath>Librerias/generales/CPI.Integration.Toolkit.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="EBDS">
+      <HintPath>Librerias/generales/EBDS.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="FuncionesReadySSC2200">
+      <HintPath>Librerias/generales/FuncionesReadySSC2200.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives">
+      <HintPath>Librerias/generales/Microsoft.Win32.Primitives.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>Librerias/generales/netstandard.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Reference>
+    <Reference Include="MultiLogic">
+      <HintPath>Librerias/generales/MultiLogic.dll</HintPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Reference>
   </ItemGroup>
 
-
   <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="10.0.3" />
     <PackageReference Include="System.IO.Ports" Version="10.0.3" />
   </ItemGroup>
 

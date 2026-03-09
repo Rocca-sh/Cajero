@@ -1,23 +1,67 @@
-using Custom_VKP_XFS;
+using System;
+using System.Drawing;
+using System.Drawing.Printing;
+using System.Threading.Tasks;
 
-public class PrinterRepository  
+public class RepImpresora
 {
-    private SerialPort printerPort;
+    private PrintDocument pcImpresora;
+    private string TextoParaTicket;
 
-    public void ImprimirTexto(string texto)
+    public RepImpresora()
     {
-        printerPort.WriteLine(texto);
+        pcImpresora = new PrintDocument();
+        pcImpresora.PrintPage += new PrintPageEventHandler(AlImprimir);
     }
 
-    public void EjecutarCorteDePapel()
+    public async Task Conectar(string nombreImpresoraWindows)
     {
-        byte[] cutCommand = { 0x1B, 0x69 }; 
-        printerPort.Write(cutCommand, 0, cutCommand.Length);
+        await Task.Run(() =>
+        {
+            try
+            {
+                pcImpresora.PrinterSettings.PrinterName = nombreImpresoraWindows;
+
+                if (pcImpresora.PrinterSettings.IsValid)
+                {
+                    Console.WriteLine("Impresora S.O. conectada y validada.");
+                }
+                else
+                {
+                    Console.WriteLine(" La impresora no fue encontrada en Windows.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error de sistema operativo: " + ex.Message);
+            }
+        });
     }
 
-    public string ObtenerEstado()
+    public void ImprimirTicket(string texto)
     {
-        _printerPort.Write(new byte[] { 0x10, 0x04, 0x01 }, 0, 3);
-        return TraducirRespuestaEstado(_printerPort.ReadByte());
+        this.TextoParaTicket = texto;
+
+        try
+        {
+            Console.WriteLine("Mandando a imprimir...");
+            pcImpresora.Print(); 
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error al intentar imprimir: " + ex.Message);
+        }
+    }
+
+    private void AlImprimir(object sender, PrintPageEventArgs e)
+    {
+        Font fuenteTicket = new Font("Courier New", 10);
+        SolidBrush tinta = new SolidBrush(Color.Black);
+
+        e.Graphics.DrawString(TextoParaTicket, fuenteTicket, tinta, 10, 10);
+
+        Console.WriteLine("Impresión finalizada por el Spooler de Windows.");
+
+        e.HasMorePages = false;
     }
 }

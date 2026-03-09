@@ -1,0 +1,6 @@
+/home/rocca/files/CFE1/obj/Debug/net8.0/CajerosCfe.csproj.AssemblyReference.cache
+/home/rocca/files/CFE1/obj/Debug/net8.0/CajerosCfe.GeneratedMSBuildEditorConfig.editorconfig
+/home/rocca/files/CFE1/obj/Debug/net8.0/CajerosCfe.AssemblyInfoInputs.cache
+/home/rocca/files/CFE1/obj/Debug/net8.0/CajerosCfe.AssemblyInfo.cs
+/home/rocca/files/CFE1/obj/Debug/net8.0/CajerosCfe.csproj.CoreCompileInputs.cache
+/home/rocca/files/CFE1/obj/Debug/net8.0/CajerosCfe.sourcelink.json

@@ -1,24 +1,70 @@
 using MPOST;
+using System;
+using System.Threading.Tasks;
+
 
 public class RepAceptador
 {
-    private readonly BillAcceptor device;
+    private MPOST.Acceptor mpost;
+    private double Total;
+    private int Meta;
 
     public RepAceptador()
     {
-        device = new BillAcceptor();
-        device.OnNoteStacked += (s, e) => AlRecibirBillete?.Invoke(e.Value);
-        device.OnStatusChanged += ManejarCambioEstado;
+        mpost = new MPOST.Acceptor();
+
+        mpost.OnEscrow += new EscrowEventHandler(AlDetectar);
+        mpost.OnStacked += new StackedEventHandler(AlGuardar);
+    }
+    public async Task Conectar(string puerto)
+    {
+        await Task.Run(() =>
+        {
+            try
+            {
+                mpost.Open(puerto, PowerUp.A);
+                mpost.EnableAcceptance = true;
+                Console.WriteLine("Billetero conectado y en espera (Bloqueado).");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error de hardware: " + ex.Message);
+            }
+        });
+    }
+    public void Aceptar(int meta)
+    {
+        this.Meta = meta;
+        this.Total = 0; // Reiniciamos el contador para la nueva meta
+        mpost.EnableAcceptance = false;
+        Console.WriteLine("Aceptando dinero... Meta actual: $" + meta);
     }
 
-    public void ConfigurarPuerto(string portName)
+    private void AlDetectar(object sender, EventArgs e)
     {
-        device.Open(portName, 9600); // Configuración según manual EBDS
+        if (Total < Meta)
+        {
+            mpost.EscrowStack();
+        }
+        else
+        {
+            mpost.EscrowReturn(); // Devolver si ya terminamos
+        }
+    }
+    private void AlGuardar(object sender, EventArgs e)
+    {
+        MPOST.Bill billete = mpost.Bill;
+        double valorBillete = billete.Value;
+
+        Total += valorBillete;
+
+        Console.WriteLine("Ingresado: $" + valorBillete + " | Total: $" + Total);
+        // Si llegamos a la meta, bloqueamos inmediatamente
+        if (Total >= Meta)
+        {
+            mpost.EnableAcceptance = true;
+            Console.WriteLine("contador alcanzado, Entrada bloqueada.");
+        }
     }
 
-    public void Habilitar(bool status)
-    {
-        if (status) device.EnableAcceptance();
-        else device.DisableAcceptance();
-    }
-}
+};
