@@ -21,7 +21,7 @@ namespace CashDeviceIntegration.Services
             _repository = sharedRepository;
         }
 
-        public async Task InitializeHardwareAsync(string port, int sspAddress = 6)
+        public async Task InitializeHardwareAsync(string port, int sspAddress = 16)
         {
             try
             {
@@ -29,9 +29,9 @@ namespace CashDeviceIntegration.Services
                 await _repository.AuthenticateAsync("admin", "password");
 
                 OnMessageDelivered?.Invoke("Buscando e intentando conectar hardware...");
-                // Nota: el SspAddress suele ser 0 para billeteros, 6 para monederos.
+                // Nota: el SspAddress suele ser 0 para billeteros (NV), 16 para monederos (SMART Coin System).
                 _currentDeviceId = await _repository.OpenConnectionAsync(port, sspAddress);
-                
+
                 OnMessageDelivered?.Invoke($"Equipo conectado exitosamente: {_currentDeviceId}");
             }
             catch (Exception ex)
@@ -52,7 +52,7 @@ namespace CashDeviceIntegration.Services
             {
                 OnMessageDelivered?.Invoke($"Iniciando recepción - Por favor, inserte su dinero...");
                 await _repository.EnableAcceptorAsync(_currentDeviceId);
-                
+
                 // NOTA FUTURA: Aquí podrías iniciar un temporizador o bucle para checar GetDeviceStatus recurrentemente
                 // mientras el usuario sigue metiendo monedas.
             }
@@ -73,7 +73,7 @@ namespace CashDeviceIntegration.Services
                 {
                     OnMessageDelivered?.Invoke($"Entregando cambio de {expectedChange}...");
                     // Nota técnica: las APIs de ITL suelen requerir el monto x100 (sin decimales). 10 pesos = 1000
-                    int rawAmount = expectedChange * 100; 
+                    int rawAmount = expectedChange * 100;
                     await _repository.DispenseValueAsync(_currentDeviceId, rawAmount);
                 }
 
