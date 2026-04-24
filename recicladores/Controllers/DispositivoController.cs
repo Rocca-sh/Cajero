@@ -83,6 +83,23 @@ namespace CashDeviceIntegration.Controllers
             }
         }
 
+        public async Task<bool> DispensarPorDenominacionExactaAsync(int valorDenominacion, int cantidadDeBilletes)
+        {
+            Log($"Intentando dispensar exactamente {cantidadDeBilletes} billetes/monedas de ${valorDenominacion}...");
+            try
+            {
+                // Multiplicamos por 100 porque las APIs suelen pedir 2000 para referirse a la denominación 20
+                await _repository.DispenseByDenominationAsync(_deviceId, valorDenominacion * 100, cantidadDeBilletes);
+                Log($"Dispensación exacta de {cantidadDeBilletes} unidades de ${valorDenominacion} lograda con éxito.");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Log($"ERROR al dispensar denominación exacta: {ex.Message}");
+                return false;
+            }
+        }
+
         public async Task VerificarCajasAsync()
         {
             Log("Consultando cajas y niveles...");

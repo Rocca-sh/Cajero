@@ -39,7 +39,14 @@ namespace CashDeviceIntegration.Repositories
 
         public async Task<string> OpenConnectionAsync(string comPort, int sspAddress)
         {
-            var req = new OpenConnectionRequest { ComPort = comPort, SspAddress = sspAddress, EnableAcceptor = false };
+            var req = new OpenConnectionRequest
+            {
+                ComPort = comPort,
+                SspAddress = sspAddress,
+                EnableAcceptor = false,
+                LogFilePath = "C:\\Temp\\", // <-- Vital arreglar para WINDOWS
+                SetInhibits = new InhibitConfig[0] // Mandar arreglo vacío en lugar de null
+            };
             var json = JsonSerializer.Serialize(req);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -71,6 +78,15 @@ namespace CashDeviceIntegration.Repositories
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await _httpClient.PostAsync($"{_baseUrl}/CashDevice/DispenseValue?deviceID={deviceId}", content);
+            response.EnsureSuccessStatusCode();
+        }
+        public async Task DispenseByDenominationAsync(string deviceId, int rawDenomination, int count, string countryCode = "MXN")
+        {
+            var req = new DispenseByDenominationRequest { Denomination = rawDenomination, Count = count, CountryCode = countryCode };
+            var json = JsonSerializer.Serialize(req);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.PostAsync($"{_baseUrl}/CashDevice/PayoutByDenomination?deviceID={deviceId}", content);
             response.EnsureSuccessStatusCode();
         }
     }
