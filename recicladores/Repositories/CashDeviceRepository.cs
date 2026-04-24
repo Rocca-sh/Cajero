@@ -44,6 +44,7 @@ namespace CashDeviceIntegration.Repositories
                 ComPort = comPort,
                 SspAddress = sspAddress,
                 EnableAcceptor = false,
+                EnableAutoAcceptEscrow = true, // MUY IMPORTANTE
                 LogFilePath = "C:\\Temp\\", // <-- Vital arreglar para WINDOWS
                 SetInhibits = new InhibitConfig[0] // Mandar arreglo vacío en lugar de null
             };

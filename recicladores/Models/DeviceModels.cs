@@ -22,6 +22,7 @@ namespace CashDeviceIntegration.Models
         public string ComPort { get; set; }
         public int SspAddress { get; set; }
         public bool EnableAcceptor { get; set; }
+        public bool EnableAutoAcceptEscrow { get; set; }
         public string LogFilePath { get; set; }
         public InhibitConfig[] SetInhibits { get; set; }
     }
