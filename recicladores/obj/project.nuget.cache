@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ak/Eir32ujc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\roberto\\Documents\\Cajero\\recicladores\\CajeroApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\roberto\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.25\\microsoft.netcore.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\roberto\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.25\\microsoft.windowsdesktop.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\roberto\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.25\\microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\roberto\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.25\\microsoft.netcore.app.host.win-x64.8.0.25.nupkg.sha512"
+  ],
+  "logs": []
+}

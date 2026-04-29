@@ -1,0 +1,15 @@
+C:\Users\roberto\Documents\Cajero\recicladores\bin\Debug\net8.0\CajeroApp.exe
+C:\Users\roberto\Documents\Cajero\recicladores\bin\Debug\net8.0\CajeroApp.deps.json
+C:\Users\roberto\Documents\Cajero\recicladores\bin\Debug\net8.0\CajeroApp.runtimeconfig.json
+C:\Users\roberto\Documents\Cajero\recicladores\bin\Debug\net8.0\CajeroApp.dll
+C:\Users\roberto\Documents\Cajero\recicladores\bin\Debug\net8.0\CajeroApp.pdb
+C:\Users\roberto\Documents\Cajero\recicladores\obj\Debug\net8.0\CajeroApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\roberto\Documents\Cajero\recicladores\obj\Debug\net8.0\CajeroApp.AssemblyInfoInputs.cache
+C:\Users\roberto\Documents\Cajero\recicladores\obj\Debug\net8.0\CajeroApp.AssemblyInfo.cs
+C:\Users\roberto\Documents\Cajero\recicladores\obj\Debug\net8.0\CajeroApp.csproj.CoreCompileInputs.cache
+C:\Users\roberto\Documents\Cajero\recicladores\obj\Debug\net8.0\CajeroApp.sourcelink.json
+C:\Users\roberto\Documents\Cajero\recicladores\obj\Debug\net8.0\CajeroApp.dll
+C:\Users\roberto\Documents\Cajero\recicladores\obj\Debug\net8.0\refint\CajeroApp.dll
+C:\Users\roberto\Documents\Cajero\recicladores\obj\Debug\net8.0\CajeroApp.pdb
+C:\Users\roberto\Documents\Cajero\recicladores\obj\Debug\net8.0\CajeroApp.genruntimeconfig.cache
+C:\Users\roberto\Documents\Cajero\recicladores\obj\Debug\net8.0\ref\CajeroApp.dll
